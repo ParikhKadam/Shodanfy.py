@@ -61,9 +61,8 @@ def main(args:dict) -> None:
     d = []
     proxy = args.get('proxy')
     socks5 = args.get('socks5')
-    socks5 = "socks5://{}".format(socks5)
-    if len(socks5) >= len(proxy):
-        proxy = socks5
+    if socks5 != "":
+        proxy = "socks5://{}".format(socks5)
     getports = False if args.get('getports') == False else True
     getinfo = False if args.get('getinfo') == False else True
     getvuln = False if args.get('getvulns') == False else True
