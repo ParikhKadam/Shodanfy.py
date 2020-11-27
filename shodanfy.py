@@ -75,9 +75,9 @@ def main(args:dict) -> None:
         getports=getinfo=getvuln=getmoreinfo=getbanner=True
     # --- 
     r = getContentFromShodan(ip,proxy=proxy)
-    r2 = getContentFromShodan('http://ipinfo.io',proxy=proxy)
-    ip_candidates = re.findall(r"\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b", r2.text)
-    print("[*] YOUR IP: " + ip_candidates[0])
+    #r2 = getContentFromShodan('http://ipinfo.io',proxy=proxy)
+    # --
+    print("[*] YOUR IP: " + ip)
     if r.status_code == 200:
         tree = html.fromstring(r.content)
         if tree.xpath('//ul[@class="ports"]/li/a/text()') != []:
